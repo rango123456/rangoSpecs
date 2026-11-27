@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="音频兔技术支持：常见问题、购买恢复、订阅取消、导入与导出故障排查。">
+  <meta name="theme-color" content="#ea3f40">
+  <title>音频兔技术支持</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --red: #ea3f40;
+      --red-deep: #c13f55;
+      --red-soft: #fff0f2;
+      --ink: #141417;
+      --muted: #65636a;
+      --line: #e9e7ea;
+      --surface: #f8f8fa;
+      --white: #fff;
+      --shadow: 0 18px 54px rgb(32 20 25 / 7%);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 8% 0%, rgb(234 63 64 / 10%), transparent 28rem),
+        var(--surface);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "PingFang SC", "Helvetica Neue", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 88px;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: -.02em;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border-radius: 13px;
+      background: linear-gradient(145deg, #f06a87, var(--red));
+      box-shadow: 0 8px 20px rgb(234 63 64 / 20%);
+    }
+
+    .brand-mark svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .top-actions a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .top-actions a:hover {
+      color: var(--red-deep);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr);
+      gap: 52px;
+      align-items: end;
+      padding: 72px 0 58px;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--red-deep);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .16em;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(48px, 8vw, 88px);
+      font-weight: 750;
+      letter-spacing: -.065em;
+      line-height: .96;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .support-card {
+      padding: 26px;
+      border: 1px solid rgb(234 63 64 / 12%);
+      border-radius: 24px;
+      background: rgb(255 255 255 / 86%);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: #8d2935;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .status::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #30a46c;
+      content: "";
+    }
+
+    .support-card h2 {
+      margin: 0;
+      font-size: 23px;
+      letter-spacing: -.035em;
+    }
+
+    .support-card p {
+      margin: 10px 0 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 14px;
+      background: var(--red);
+      color: var(--white);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: #d93536;
+    }
+
+    .button.secondary {
+      border-color: var(--line);
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .button.secondary:hover {
+      border-color: #d8d3d7;
+      background: #faf9fa;
+    }
+
+    :focus-visible {
+      outline: 3px solid rgb(234 63 64 / 30%);
+      outline-offset: 3px;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      padding-bottom: 70px;
+    }
+
+    .quick-card {
+      min-height: 150px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--white);
+      text-decoration: none;
+      transition: transform .18s ease, border-color .18s ease;
+    }
+
+    .quick-card:hover {
+      transform: translateY(-3px);
+      border-color: rgb(234 63 64 / 35%);
+    }
+
+    .quick-index {
+      color: var(--red-deep);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .12em;
+    }
+
+    .quick-card h3 {
+      margin: 22px 0 6px;
+      font-size: 18px;
+      letter-spacing: -.025em;
+    }
+
+    .quick-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .content {
+      padding: 58px 0 80px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
+      gap: 52px;
+      align-items: start;
+      margin-bottom: 34px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(32px, 4vw, 48px);
+      letter-spacing: -.05em;
+      line-height: 1.05;
+    }
+
+    .section-head p {
+      margin: 4px 0 0;
+      color: var(--muted);
+    }
+
+    details {
+      border-top: 1px solid var(--line);
+    }
+
+    details:last-of-type {
+      border-bottom: 1px solid var(--line);
+    }
+
+    summary {
+      position: relative;
+      display: flex;
+      min-height: 74px;
+      align-items: center;
+      padding: 18px 54px 18px 0;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: 650;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      position: absolute;
+      right: 8px;
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--red-deep);
+      content: "+";
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 27px;
+      text-align: center;
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    .answer {
+      max-width: 780px;
+      padding: 0 56px 24px 0;
+      color: var(--muted);
+    }
+
+    .answer p {
+      margin: 0 0 12px;
+    }
+
+    .answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, .8fr);
+      gap: 52px;
+      padding: 68px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact h2 {
+      margin: 0 0 14px;
+      font-size: clamp(34px, 4vw, 52px);
+      letter-spacing: -.05em;
+      line-height: 1.03;
+    }
+
+    .contact > div > p {
+      max-width: 650px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .checklist {
+      padding: 24px;
+      border-radius: 22px;
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .checklist h3 {
+      margin: 0 0 16px;
+      font-size: 17px;
+    }
+
+    .checklist ul {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: rgb(255 255 255 / 72%);
+      font-size: 14px;
+    }
+
+    .checklist li::before {
+      margin-right: 9px;
+      color: #f78a9d;
+      content: "•";
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100px;
+      gap: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer a {
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--red-deep);
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        width: min(100% - 28px, 1080px);
+      }
+
+      .topbar {
+        min-height: 72px;
+      }
+
+      .top-actions a:first-child {
+        display: none;
+      }
+
+      .hero,
+      .section-head,
+      .contact {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .hero {
+        padding: 50px 0 42px;
+      }
+
+      h1 {
+        font-size: clamp(44px, 14vw, 60px);
+      }
+
+      .hero-copy {
+        font-size: 17px;
+      }
+
+      .support-card {
+        padding: 22px;
+      }
+
+      .quick-grid {
+        grid-template-columns: 1fr;
+        padding-bottom: 54px;
+      }
+
+      .quick-card {
+        min-height: 0;
+      }
+
+      .content {
+        padding: 46px 0 62px;
+      }
+
+      summary {
+        min-height: 70px;
+        font-size: 16px;
+      }
+
+      .answer {
+        padding-right: 0;
+      }
+
+      .contact {
+        padding: 52px 0;
+      }
+
+      footer {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding: 26px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .quick-card {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell topbar">
+    <a class="brand" href="#">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"
+            stroke="white" stroke-width="2.1" stroke-linecap="round"/>
+        </svg>
+      </span>
+      音频兔
+    </a>
+    <nav class="top-actions" aria-label="页面导航">
+      <a href="#contact">联系支持</a>
+      <a href="privacy.html">隐私政策</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="shell hero">
+      <div>
+        <p class="eyebrow">AUDIO BUNNY · SUPPORT</p>
+        <h1>遇到问题，<br>从这里开始。</h1>
+        <p class="hero-copy">
+          音频兔的格式转换、音频剪辑、批量调音、导入与导出问题，
+          都可以在这里找到排查方法或直接联系我们。
+        </p>
+      </div>
+      <aside class="support-card" aria-labelledby="support-title">
+        <div class="status">支持页面在线</div>
+        <h2 id="support-title">需要人工协助？</h2>
+        <p>
+          发送邮件即可联系开发者。附上设备、系统版本和复现步骤，
+          能帮助我们更快定位问题。
+        </p>
+        <a class="button"
+          href="mailto:renshaolei0725@163.com?subject=%E9%9F%B3%E9%A2%91%E5%85%94%E6%8A%80%E6%9C%AF%E6%94%AF%E6%8C%81">
+          发送支持邮件
+        </a>
+      </aside>
+    </section>
+
+    <section class="shell quick-grid" aria-label="快速帮助">
+      <a class="quick-card" href="#faq">
+        <span class="quick-index">01</span>
+        <h3>常见问题</h3>
+        <p>导入、转换、权限和导出失败</p>
+      </a>
+      <a class="quick-card" href="#store">
+        <span class="quick-index">02</span>
+        <h3>购买与订阅</h3>
+        <p>恢复购买、取消续订和 Pro 权益</p>
+      </a>
+      <a class="quick-card" href="privacy.html">
+        <span class="quick-index">03</span>
+        <h3>隐私与本地处理</h3>
+        <p>了解哪些数据留在你的设备上</p>
+      </a>
+    </section>
+
+    <section class="shell content" id="faq">
+      <div class="section-head">
+        <h2>常见问题</h2>
+        <p>
+          先尝试下面的排查方法。仍然无法解决时，请通过页面底部的邮箱联系我们。
+        </p>
+      </div>
+
+      <details open>
+        <summary>音频无法导入或分享到音频兔</summary>
+        <div class="answer">
+          <p>
+            请确认文件完整、未加密，且没有被云盘标记为“仅在线”。可以先把文件保存到
+            “文件”App，再重新选择导入。
+          </p>
+          <p>
+            从其他 App 导入时，请在分享菜单选择“音频兔”。如果没有看到该选项，
+            点击“更多”并启用它。DRM 音乐和部分系统受限文件无法导入。
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>格式转换失败或找不到目标格式</summary>
+        <div class="answer">
+          <p>
+            请确认设备有足够存储空间，并检查源文件是否可以正常播放。音频兔支持
+            MP3、M4A、AAC、WAV、FLAC、AIFF、OGG、OPUS 等常见格式，也提供其他目标格式。
+          </p>
+          <p>
+            高级格式可能需要音频兔 Pro。如果出现具体错误提示，请将源格式、
+            目标格式和错误信息一起发送给我们。
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Wi-Fi 导入无法连接电脑</summary>
+        <div class="answer">
+          <p>
+            请确认 iPhone 和电脑连接同一局域网，并使用页面上当前显示的地址。
+            上传期间请保持音频兔在前台。
+          </p>
+          <p>
+            如果电脑无法访问，请到“设置 &gt; 隐私与安全性 &gt; 本地网络”允许音频兔访问。
+            单次上传文件不能超过 2 GB。
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>导出的音频无法播放或时长不正确</summary>
+        <div class="answer">
+          <p>
+            请先尝试用系统“文件”或“音乐”App 播放导出结果，再检查源音频是否能完整播放。
+            如果原始文件在中间已经损坏，导出也可能不完整。
+          </p>
+          <p>
+            如问题可以重复出现，请提供源文件格式、导出格式和操作步骤。
+          </p>
+        </div>
+      </details>
+
+      <details id="store">
+        <summary>如何恢复购买或取消自动订阅？</summary>
+        <div class="answer">
+          <p>
+            恢复购买时，请先确认当前 Apple ID 与购买时一致，然后在音频兔的内购页面
+            选择“恢复购买”。
+          </p>
+          <p>
+            取消订阅请打开 <strong>App Store &gt; 点击头像 &gt; 订阅 &gt; 音频兔 &gt; 取消订阅</strong>。
+            取消后，当前已付费周期内仍可使用 Pro 权益。永久版不会自动续订。
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>删除的音频或作品能否恢复？</summary>
+        <div class="answer">
+          <p>
+            不能。App 内删除的本地文件和作品无法恢复，请在删除前通过分享、另存文件
+            或其他方式做好备份。
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <section class="shell contact" id="contact">
+      <div>
+        <p class="eyebrow">CONTACT</p>
+        <h2>还是没有解决？</h2>
+        <p>
+          请发送邮件至
+          <a href="mailto:renshaolei0725@163.com">renshaolei0725@163.com</a>。
+          请不要在公开页面上传包含个人隐私的原始音频。
+        </p>
+        <div class="contact-actions">
+          <a class="button"
+            href="mailto:renshaolei0725@163.com?subject=%E9%9F%B3%E9%A2%91%E5%85%94%E6%8A%80%E6%9C%AF%E6%94%AF%E6%8C%81">
+            联系技术支持
+          </a>
+          <a class="button secondary"
+            href="https://github.com/rango123456/rangoSpecs/issues/new?title=%E3%80%90%E9%9F%B3%E9%A2%91%E5%85%94%E3%80%91%E6%8A%80%E6%9C%AF%E6%94%AF%E6%8C%81">
+            在线反馈
+          </a>
+        </div>
+      </div>
+      <aside class="checklist">
+        <h3>为了更快定位，请附上</h3>
+        <ul>
+          <li>设备型号与 iOS 版本</li>
+          <li>音频兔版本</li>
+          <li>使用的功能名称</li>
+          <li>源文件格式与目标格式</li>
+          <li>可复现的操作步骤</li>
+          <li>错误截图或录屏</li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <span>© 2026 音频兔 · Audio Bunny</span>
+    <span>
+      <a href="privacy.html">隐私政策</a>
+      &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="mailto:renshaolei0725@163.com">技术支持</a>
+    </span>
+  </footer>
+</body>
+</html>
